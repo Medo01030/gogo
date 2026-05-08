@@ -7,40 +7,119 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
-            --primary: #1e3c72; --secondary: #ff9800; --light-bg: #f4f7f6;
-            --text-dark: #333; --white: #ffffff;
+            --primary: #1e3c72; 
+            --secondary: #ff9800; 
+            --light-bg: #f4f7f6;
+            --text-dark: #333;
+            --white: #ffffff;
             --gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         }
+
         * { box-sizing: border-box; }
-        body { font-family: 'Tajawal', sans-serif; background-color: var(--light-bg); margin: 0; color: var(--text-dark); scroll-behavior: smooth; }
-        .hero { background: var(--gradient); color: var(--white); padding: 100px 20px; text-align: center; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(var(--white) 1px, transparent 1px); background-size: 50px 50px; opacity: 0.1; z-index: 1; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* تنسيق الهيرو */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(var(--white) 1px, transparent 1px);
+            background-size: 50px 50px; opacity: 0.1; z-index: 1;
+        }
+
         .hero-content { position: relative; z-index: 10; max-width: 900px; margin: auto; }
-        .app-logo { max-width: 150px; height: auto; margin-bottom: 20px; border-radius: 20%; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+        
+        /* اللوجو */
+        .app-logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 20%;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
         .hero h1 { font-size: 3rem; font-weight: 900; margin-bottom: 15px; }
         .hero p { font-size: 1.4rem; opacity: 0.9; margin-bottom: 40px; }
-        .btn { display: inline-block; padding: 15px 40px; font-size: 1.2rem; font-weight: 700; text-decoration: none; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; border: none; }
-        .btn-primary { background-color: var(--white); color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-        .btn-secondary { background-color: var(--secondary); color: var(--white); box-shadow: 0 10px 20px rgba(255,152,0,0.3); }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary { background-color: var(--white); color: var(--primary); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        .btn-secondary { background-color: var(--secondary); color: var(--white); }
+        .btn-secondary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,152,0,0.4); }
+
+        /* المميزات */
         .features { padding: 80px 20px; text-align: center; background-color: var(--white); }
         .features h2 { font-size: 2.2rem; margin-bottom: 50px; color: var(--primary); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: auto; }
-        .feature-card { background-color: var(--light-bg); padding: 35px; border-radius: 20px; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; max-width: 1100px; margin: auto;
+        }
+        
+        .feature-card {
+            background-color: var(--light-bg);
+            padding: 35px; border-radius: 20px; transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
         .feature-card:hover { transform: translateY(-10px); }
         .feature-icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+
+        /* الإحصائيات */
         .stats { background: #f9f9f9; padding: 60px 20px; text-align: center; }
         .stats-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; }
         .stat-number { font-size: 3rem; font-weight: 900; color: var(--primary); }
-        .download-section { background: var(--gradient); color: var(--white); padding: 80px 20px; text-align: center; }
-        .download-box { background-color: var(--white); max-width: 450px; margin: auto; padding: 40px; border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+
+        /* قسم التحميل */
+        .download-section {
+            background: var(--gradient); color: var(--white);
+            padding: 80px 20px; text-align: center;
+        }
+        
+        .download-box {
+            background-color: var(--white); max-width: 450px;
+            margin: auto; padding: 40px; border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
         .footer { padding: 30px; text-align: center; background-color: #f0f3f2; color: #777; }
     </style>
 </head>
 <body>
+
     <header class="hero">
         <div class="hero-content">
             <img src="https://i.postimg.cc/3wCt12C2/ic-launcher.jpg" alt="GOGO REWARD Logo" class="app-logo">
@@ -51,45 +130,46 @@
     </header>
 
     <section class="features">
-        <h2>مميزات التطبيق</h2>
+        <h2>لماذا تختار تطبيقنا؟</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <i class="fas fa-coins feature-icon"></i>
                 <h3>جمع نقاط سهل</h3>
-                <p>مهام بسيطة يومياً لزيادة رصيدك.</p>
+                <p>مهام بسيطة يومياً لزيادة رصيدك بسرعة.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-wallet feature-icon"></i>
-                <h3>سحب فودافون كاش</h3>
-                <p>حول أرباحك لرصيد حقيقي في ثوانٍ.</p>
+                <h3>سحب فوري</h3>
+                <p>حول أرباحك لرصيد فودافون كاش في ثوانٍ.</p>
             </div>
             <div class="feature-card">
-                <i class="fas fa-share-alt feature-icon"></i>
+                <i class="fas fa-users feature-icon"></i>
                 <h3>نظام الإحالات</h3>
-                <p>اربح المزيد بدعوة أصدقائك بكودك الخاص.</p>
+                <p>اربح مع كل صديق تدعوه باستخدام كودك.</p>
             </div>
         </div>
     </section>
 
     <section class="stats">
         <div class="stats-grid">
-            <div class="stat-item"><div class="stat-number">10K+</div><div>مستخدم</div></div>
+            <div class="stat-item"><div class="stat-number">10K+</div><div>مستخدم نشط</div></div>
             <div class="stat-item"><div class="stat-number">500K+</div><div>نقطة موزعة</div></div>
         </div>
     </section>
 
     <section class="download-section" id="download">
         <div class="download-box">
-            <h2 style="color: #333;">ابدأ الآن</h2>
-            <a href="GOGO%20REWARD_1.0.apk" class="btn btn-secondary">
-                <i class="fab fa-android"></i> تحميل بصيغة APK
+            <h2 style="color: #333;">جاهز للربح؟</h2>
+            <a href="GOGO_1.0.apk" download class="btn btn-secondary">
+                <i class="fab fa-android"></i> تحميل تطبيق GOGO_1.0 (APK)
             </a>
-            <p style="color: #888; margin-top: 10px;">إصدار 1.0 - آمن وموثوق</p>
+            <p style="color: #888; margin-top: 15px;">إصدار 1.0 - آمن وموثوق</p>
         </div>
     </section>
 
     <footer class="footer">
         <p>جميع الحقوق محفوظة لـ GOGO REWARD &copy; 2026</p>
     </footer>
+
 </body>
 </html>
